@@ -1,3 +1,6 @@
 prepare
 /packer_cache/*
 /img*
+.idea
+packer*
+.DS_Store

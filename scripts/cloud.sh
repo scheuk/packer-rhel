@@ -2,7 +2,9 @@
 yum -y update
 
 # Installs cloudinit
-yum -y install cloud-init
+yum -y install cloud-init cloud-utils-growpart dracut-modules-growroot acpid heat-cfntools
+# regenerate initramfs for all kernels to make growroot work
+ls /boot/vmlinuz* | sed 's/\/boot\/vmlinuz-//' | xargs -I {} dracut -f /boot/initramfs-{}.img {}
 
 # configure cloud init 'cloud-user' as sudo
 # this is not configured via default cloudinit config
@@ -34,8 +36,8 @@ yum -y install haveged
 
   #In order for nova console-log to work properly on CentOS 6.x
   # already done in 6.5
-  # echo "serial --unit=0 --speed=115200"  >> /boot/grub/grub.conf
-  # echo "terminal --timeout=10 console serial"  >> /boot/grub/grub.conf
+  echo "serial --unit=0 --speed=115200"  >> /boot/grub/grub.conf
+  echo "terminal --timeout=10 console serial"  >> /boot/grub/grub.conf
 
   # Edit the kernel line to add the console entries
   # echo "kernel ... console=tty0 console=ttyS0,115200n8"  >> /boot/grub/menu.lst
