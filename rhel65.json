@@ -82,7 +82,7 @@
     ],
     "override": {
       "athena-oel-65-vbox": {
-        "execute_command": "sh '{{.Path}}'"
+        "execute_command": "echo 'packer'|sudo -S sh '{{.Path}}'"
       }
     },
     "only": ["athena-oel-65-vbox"]
