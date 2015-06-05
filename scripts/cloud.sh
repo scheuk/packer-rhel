@@ -8,6 +8,7 @@ ls /boot/vmlinuz* | sed 's/\/boot\/vmlinuz-//' | xargs -I {} dracut -f /boot/ini
 
 # configure cloud init 'cloud-user' as sudo
 # this is not configured via default cloudinit config
+mkdir -p /export/home
 cat > /etc/cloud/cloud.cfg.d/02_user.cfg <<EOL
 system_info:
   default_user:
@@ -17,6 +18,18 @@ system_info:
     groups: [wheel, adm]
     sudo: ["ALL=(ALL) NOPASSWD:ALL"]
     shell: /bin/bash
+    homedir: /export/home/cloud-user
+EOL
+
+cat > /etc/cloud/cloud.cfg.d/01_resolv.cfg <<EOL
+manage-resolv-conf: true
+
+resolv_conf:
+  nameservers: ['172.28.21.21', '172.28.21.22']
+  domain: athenahealth.com
+  options:
+    rotate: true
+    timeout: 3
 EOL
 
 # Current version does not work well with the latest cloud-init version
