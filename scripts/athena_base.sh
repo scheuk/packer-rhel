@@ -5,23 +5,23 @@ rm -f /etc/yum.repos.d/public-yum-ol6.repo
 cat > /etc/yum.repos.d/athenarepos.repo << EOM
 [OL_6.5]
 name=Local OL6.5
-baseurl=http://cobbler200.athenahealth.com/cobbler/ks_mirror/OL6.5-x86_64/Server
+baseurl=http://cobbler100.athenahealth.com/cobbler/ks_mirror/OL6.5-x86_64/Server
 enabled=1
 gpgcheck=1
 metadata_expire=1m
 priority=1
-gpgkey=http://cobbler200.athenahealth.com/cobbler/ks_mirror/OL6.5-x86_64/RPM-GPG-KEY-oracle
+gpgkey=http://cobbler100.athenahealth.com/cobbler/ks_mirror/OL6.5-x86_64/RPM-GPG-KEY-oracle
 
 [OL6.5-UEK3]
 name=UEK3 repo for EL
-baseurl=http://cobbler200.athenahealth.com/LocalRepo/UEK/UEK3
+baseurl=http://cobbler100.athenahealth.com/LocalRepo/UEK/UEK3
 enabled=1
 gpgcheck=0
 metadata_expire=1m
 
 [OL_6.5_Updates]
 name=Local OEL 6 updates
-baseurl=http://cobbler200.athenahealth.com/LocalRepo/ol-6.5-updates
+baseurl=http://cobbler100.athenahealth.com/LocalRepo/ol-6.5-updates
 enabled=1
 gpgcheck=0
 metadata_expire=1m
@@ -29,28 +29,28 @@ priority=1
 
 [localepel]
 name=Locally hosted packages from EPEL repo
-baseurl=http://cobbler200.athenahealth.com/LocalRepo/epel-6-x86_64
+baseurl=http://cobbler100.athenahealth.com/LocalRepo/epel-6-x86_64
 enabled=1
 gpgcheck=0
 metadata_expire=1m
 
 [localdag]
 name=Locally hosted packages from DAG repo
-baseurl=http://cobbler200.athenahealth.com/LocalRepo/dag-6-x86_64
+baseurl=http://cobbler100.athenahealth.com/LocalRepo/dag-6-x86_64
 enabled=1
 gpgcheck=0
 metadata_expire=1m
 
 [athena]
 name=Locally built and maintained packages
-baseurl=http://cobbler200.athenahealth.com/LocalRepo/athena-6
+baseurl=http://cobbler100.athenahealth.com/LocalRepo/athena-6
 enabled=1
 gpgcheck=0
 metadata_expire=1m
 
 [localmisc]
 name=Locally hosted Packages from Miscellaneous repos
-baseurl=http://cobbler200.athenahealth.com/LocalRepo/misc-6
+baseurl=http://cobbler100.athenahealth.com/LocalRepo/misc-6
 enabled=1
 gpgcheck=0
 metadata_expire=1m

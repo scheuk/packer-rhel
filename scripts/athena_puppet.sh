@@ -3,7 +3,7 @@
 cat > /etc/yum.repos.d/athenapuppet.repo << EOM
 [puppet-6]
 name=Locally mirrored puppetlabs rpms (EL6)
-baseurl=http://cobbler200.athenahealth.com/LocalRepo/puppetlabs-6
+baseurl=http://cobbler100.athenahealth.com/LocalRepo/puppetlabs-6
 enabled=1
 gpgcheck=0
 metadata_expire=1m
